@@ -1,3 +1,148 @@
+:root{
+    --blue-green:#24C6DC;
+    --dark-blue:#514A9D;
+    --white:#ffffffd5;
+    --blue-invisible:rgba(17, 56, 228, 0.568);
+    --blue-light:#049bff;
+    --blue-light-invisible:#0888f098;
+    --blue-normal:#0717ff;
+    --blue-normal-invisible:#1d04ffa1;
+   
+   
+    
+    --grey-light:#b0b0b3c2;
+    
+    
+}
+.area{
+    position: fixed;
+    z-index: -5;
+    background:linear-gradient(135deg, var(--blue-green), var(--dark-blue));  
+    width: 100vw;
+    height:150vh;
+    
+   
+}
+
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: var(--blue-invisible);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+
+
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -14,8 +159,8 @@ html {
 body {
     width: 100%;
     height: 100%;
-    background: url("https://images.unsplash.com/photo-1547138666-50366f6ef3e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80") no-repeat center fixed;
     background-size: cover;
+    overflow-x: hidden;
 
 }
 
@@ -47,11 +192,11 @@ header {
 }
 
 .top-nav {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: -100vh;
-    background-color: #16162d;
+    background-color: var(--blue-light);
     border-bottom-right-radius: 100%;
     border-bottom-left-radius: 100%;
     transition: all 650ms cubic-bezier(1, 0, 0, 1);
@@ -89,11 +234,10 @@ li {
 
 .nav-link:hover,
 .nav-link:focus {
-    background: linear-gradient(to top, #ffe838, #fd57bf);
+    background: linear-gradient(to top, var(--blue-green), var(--white));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 
 .container {
     width: 90%;
@@ -106,13 +250,18 @@ li {
 
 
 .section-heading {
+    margin: auto;
+    width: 70%;
+    background-color: var(--grey-light);
+    padding: 1rem;
+    border-radius: 0.5rem;
     text-align: center;
     margin-bottom: 10rem;
 }
 
 .section-heading h1 {
     font-size: 3.5rem;
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--blue-light);
     text-transform: uppercase;
     font-weight: 300;
     position: relative;
@@ -127,11 +276,11 @@ li {
     bottom: -.5rem;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.75)
+    background-color: var(--white)
 }
 
 .section-heading h1::before {
-    width: 10rem;
+    width: 40rem;
     height: 3px;
     border-radius: .8rem;
 }
@@ -145,6 +294,7 @@ li {
 .section-heading h6 {
     font-size: 1.6rem;
     font-weight: 300;
+    color: var(--blue-invisible)
     
 
 
@@ -171,7 +321,7 @@ margin-left: 5rem;
 
 }
 
-.menu-toggler {
+.menu-burger {
     position: absolute;
     position: fixed;
     top: 5rem;
@@ -186,12 +336,12 @@ margin-left: 5rem;
     transition: transform 650ms ease-out;
 }
 
-.menu-toggler.open {
+.menu-burger.open {
     transform: rotate(-45deg);
 }
 
 .bar {
-    background: linear-gradient(to right, #ffe838, #fd57bf);
+    background: linear-gradient(to right, #6a6b6b, #fffeff);
     width: 100%;
     height: 4px;
     border-radius: .8rem;
@@ -227,20 +377,23 @@ margin-left: 5rem;
 
 }
 
+
+
 .landing-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 80%;
     text-align: center;
-    z-index: -1;
+    
+
 }
 
  .landing-text h1 {
     font-size: 15rem;
     font-family: 'Pacifico', cursive;
-     background: linear-gradient(to top, #ffe838, #fd57bf);
+     background: linear-gradient(to top, #fafaface, #999898);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 1rem;
@@ -248,7 +401,7 @@ margin-left: 5rem;
 } 
 
 .landing-text h6 {
-    font-size: 2rem;
+    font-size: 3.5rem;
     font-weight: 300;
 }
 
@@ -281,11 +434,15 @@ margin-left: 5rem;
 .profile-img {
     flex: 1;
     margin-right: 5rem;
+    
 }
 
 .about-details {
     flex: 1;
-
+    background: linear-gradient(#3a5199b0,#0833f0c2);
+    border-radius: 2rem;
+    padding: 8rem 2rem 2rem 4rem;
+    text-align: center;
 }
 
 
@@ -348,8 +505,8 @@ margin-left: 5rem;
 .icon-container {
     width: 10rem;
     height: 10rem;
-    border: 3px solid #dacf37;
-    background-color: #ea4c89;
+    border: 3px solid var(--blue-normal);
+    background-color: var(--blue-light-invisible);
     margin-bottom: 2rem;
     display: flex;
     transform: rotate(45deg);
@@ -359,7 +516,7 @@ margin-left: 5rem;
 
 
 .icon-container i {
-    color: #dacf37;
+    color: var(--blue-normal);
     font-size: 5rem;
     margin: auto;
     transform: rotate(-45deg);
@@ -375,6 +532,7 @@ margin-left: 5rem;
 }
 
 
+
 .portfolio-item:last-child{
     margin-bottom: 0;
 }
@@ -382,12 +540,21 @@ margin-left: 5rem;
 
 
  .portfolio-img{
+    box-shadow: 15px 15px 5px #0b0b1b;
+
 flex: 1;
 width: 50rem;
 } 
 
 .portfolio-description{
     flex: 1;
+    background: linear-gradient(var(--blue-light-invisible),var(--blue-light));
+    padding: 1rem;
+    
+    border-radius: 2rem;
+    box-shadow: 15px 15px 15px #25252585 ;
+    height: 65vh;
+   
 }
 .portfolio-description h6{
    font-size: 1.5rem;
@@ -401,6 +568,32 @@ width: 50rem;
     font-weight: 300;
 }
 
+html body .portfolio-description p{
+    font-size: 2.5rem;
+}
+.tagcloud ul{
+    margin: 0;
+    margin-top: 2rem;
+	padding: 0;
+    list-style: none;
+    
+}
+.tagcloud ul li{
+    display: inline-block;
+	margin: 0 .3em .3em 0;
+    padding: 1rem;
+    background-color: var(--blue-normal);
+    font-size: 2rem;
+    border-radius: 1rem;
+    transition: color 950ms;
+
+}
+.tagcloud ul li:hover{
+color: var(--blue-normal);
+background-color: var(--white);
+
+}
+
 .portfolio-description .cta{
 display: inline-block;
 margin-top: 2.5rem;
@@ -409,9 +602,11 @@ text-transform: uppercase;
 color: #1b1b6d;
 transition: color 650ms;
 }
-
+body .portfolio-description p{
+    font-size: 2rem;
+}
 .portfolio-description .cta:hover{
-    color: #38a1f3;
+    color: var(--blue-green);
 }
 .timeline ul{
 border-left: 4px solid #ffe838;
@@ -477,7 +672,7 @@ border: none;
 	
 	
 	padding: 10px;
-	border: 2px solid #eeab69;
+	border: 2px solid var(--dark-blue);
 
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -531,7 +726,7 @@ textarea{
 }
 
 .copyright{
-    width: 100%;
+    width: 100vw;
     text-align: center;
     background-color: #0b0b1b;
     padding: 2rem 0;
@@ -567,30 +762,32 @@ margin: auto;
 
 @keyframes pulse{
     0%{
-        box-shadow: 0 0 0 0 rgba(253, 87, 191, 0.99)
+        box-shadow: 0 0 0 0 var(--blue-green)
     }
     70%{
-        box-shadow: 0 0 0 2rem rgba(253, 87, 191, 0)
+        box-shadow: 0 0 0 2rem var(--blue-invisible)
     }
     100%{
-        box-shadow: 0 0 0 0 rgba(253, 87, 191, 0.99)
+        box-shadow: 0 0 0 0 var(--blue-light)
     }
     }
 
 
-
-
+  
 
     @media screen and (max-width:768px){
 
         body {
-           
-            background: url("https://images.unsplash.com/photo-1547138666-50366f6ef3e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80") no-repeat center fixed;
-            background-size: cover;
+            overflow-x: hidden;
         
         }
+        .section-heading h1::before {
+            width: 15rem;
+            height: 3px;
+            border-radius: .8rem;
+        }
         .landing-text h1{
-            font-size: 8rem;
+            font-size: 6rem;
 
      
         }
@@ -637,12 +834,30 @@ margin: auto;
         .timeline .date::after{
             left: -5.9rem;
         }
-        .menu-toggler{
+        .menu-burger{
             position: absolute;
         }
+        .profile-img{
+                margin: 0 0 7rem 0;
+            }
+
+            .portfolio-item{
+                flex-direction: column;
+            }
+            .portfolio-img{
+                width: 100vw;
+                margin: 0 0 2rem 0;
+                order: 1;
+                box-shadow: none;
+            }
+
+            .portfolio-description{
+                margin: 0;
+                order: 2;
+            }
     }
         @media screen and (max-width:600px) {
-            .menu-toggler{
+            .menu-burger{
                 top: 2rem;
                 right: 2rem;
                 
@@ -651,28 +866,13 @@ margin: auto;
                 font-size: 1.4rem;
             }
             .nav-link{
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
 
             .about .container{
                 flex-direction: column;
             }
-            .profile-img{
-                margin: 0 0 7rem 0;
-            }
-
-            .portfolio-item{
-                flex-direction: column;
-            }
-            .portfolio-img{
-                margin: 0 0 2rem 0;
-                order: 1;
-            }
-
-            .portfolio-description{
-                margin: 0;
-                order: 2;
-            }
+            
             .timeline p{
                 font-size: 1.5rem;
             }
