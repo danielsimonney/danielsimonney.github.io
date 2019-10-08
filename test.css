@@ -472,7 +472,7 @@ margin-left: 5rem;
 
 
 .my-skills {
-    margin-top: 10rem;
+    margin-top: 12rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     grid-gap: 2.5rem;
@@ -757,6 +757,7 @@ margin: auto;
 
 .copyright p{
     font-size: 1.4rem;
+	
 
 }
 
